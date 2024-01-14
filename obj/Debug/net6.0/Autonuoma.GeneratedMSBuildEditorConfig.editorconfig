@@ -1,0 +1,148 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Autonuoma
+build_property.RootNamespace = Autonuoma
+build_property.ProjectDir = c:\tadas\code\dbs\db\Autonuoma\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = c:\tadas\code\dbs\db\Autonuoma
+build_property._RazorSourceGeneratorDebug = 
+
+[c:/tadas/code/dbs/db/Autonuoma/Views/Ataskaita/Rungtynes.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXRhc2thaXRhXFJ1bmd0eW5lcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/tadas/code/dbs/db/Autonuoma/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/tadas/code/dbs/db/Autonuoma/Views/Komanda/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS29tYW5kYVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/tadas/code/dbs/db/Autonuoma/Views/Komanda/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS29tYW5kYVxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/tadas/code/dbs/db/Autonuoma/Views/Komanda/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS29tYW5kYVxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/tadas/code/dbs/db/Autonuoma/Views/Komanda/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS29tYW5kYVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/tadas/code/dbs/db/Autonuoma/Views/Miestas/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWllc3Rhc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/tadas/code/dbs/db/Autonuoma/Views/Miestas/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWllc3Rhc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/tadas/code/dbs/db/Autonuoma/Views/Miestas/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWllc3Rhc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/tadas/code/dbs/db/Autonuoma/Views/Miestas/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWllc3Rhc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/tadas/code/dbs/db/Autonuoma/Views/Rungtynes/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUnVuZ3R5bmVzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/tadas/code/dbs/db/Autonuoma/Views/Rungtynes/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUnVuZ3R5bmVzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/tadas/code/dbs/db/Autonuoma/Views/Rungtynes/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUnVuZ3R5bmVzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/tadas/code/dbs/db/Autonuoma/Views/Rungtynes/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUnVuZ3R5bmVzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/tadas/code/dbs/db/Autonuoma/Views/Salis/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FsaXNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/tadas/code/dbs/db/Autonuoma/Views/Salis/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FsaXNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/tadas/code/dbs/db/Autonuoma/Views/Salis/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FsaXNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/tadas/code/dbs/db/Autonuoma/Views/Salis/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FsaXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/tadas/code/dbs/db/Autonuoma/Views/Teisejas/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVpc2VqYXNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/tadas/code/dbs/db/Autonuoma/Views/Teisejas/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVpc2VqYXNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/tadas/code/dbs/db/Autonuoma/Views/Teisejas/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVpc2VqYXNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/tadas/code/dbs/db/Autonuoma/Views/Teisejas/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVpc2VqYXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/tadas/code/dbs/db/Autonuoma/Views/Turnyras/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHVybnlyYXNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/tadas/code/dbs/db/Autonuoma/Views/Turnyras/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHVybnlyYXNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/tadas/code/dbs/db/Autonuoma/Views/Turnyras/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHVybnlyYXNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/tadas/code/dbs/db/Autonuoma/Views/Turnyras/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHVybnlyYXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/tadas/code/dbs/db/Autonuoma/Views/Zaidejas/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcWmFpZGVqYXNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/tadas/code/dbs/db/Autonuoma/Views/Zaidejas/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcWmFpZGVqYXNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/tadas/code/dbs/db/Autonuoma/Views/Zaidejas/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcWmFpZGVqYXNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/tadas/code/dbs/db/Autonuoma/Views/Zaidejas/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcWmFpZGVqYXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/tadas/code/dbs/db/Autonuoma/Views/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX0xheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/tadas/code/dbs/db/Autonuoma/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/tadas/code/dbs/db/Autonuoma/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 

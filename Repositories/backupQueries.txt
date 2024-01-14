@@ -1,0 +1,103 @@
+var query2 =
+				$@"SELECT
+					rung.faktine_data, rung.fk_seimininkai, rung.fk_sveciai,
+					bs1.teisejas,
+					turn.pavadinimas, turn.sezonas, turn.fk_salis,
+					sal.pavadinimas AS salis,
+					IFNULL(COUNT(CASE WHEN iv.uz_kuria_komanda = 'seimininku' THEN 1 END), 0) AS ivarciai_seim,
+					IFNULL(COUNT(CASE WHEN iv.uz_kuria_komanda = 'sveciu' THEN 1 END), 0) AS ivarciai_svec,
+					IFNULL(bs2.ivarciu_suma, 0) AS ivarciu_suma,
+					bs2.rungtyniu_suma,
+					IFNULL(ivarciu_suma / bs2.rungtyniu_suma, 0) AS ivarciu_vidurkis
+				FROM
+					`{Config.TblPrefix}rungtynes` rung
+					INNER JOIN `{Config.TblPrefix}turnyrai` turn ON turn.pavadinimas = rung.fk_turnyras AND turn.sezonas = rung.fk_sezonas AND turn.fk_salis = rung.fk_salis
+					INNER JOIN `{Config.TblPrefix}salys` sal ON sal.id = turn.fk_salis
+					INNER JOIN (SELECT CONCAT(vardas, ' ', pavarde) AS teisejas, id FROM `{Config.TblPrefix}teisejai`) AS bs1 ON bs1.id = rung.fk_teisejas
+					LEFT JOIN `{Config.TblPrefix}ivarciai` iv ON iv.fk_seimininkai = rung.fk_seimininkai AND iv.fk_sveciai = rung.fk_sveciai AND iv.fk_data = rung.faktine_data
+					LEFT JOIN
+						( 	SELECT
+								turn2.pavadinimas, turn2.sezonas, turn2.fk_salis,
+								IFNULL(COUNT(iv2.minute), 0) AS ivarciu_suma,
+								IFNULL(COUNT(DISTINCT rung2.fk_seimininkai, rung2.fk_sveciai, rung2.faktine_data), 0) AS rungtyniu_suma
+							FROM 
+								`{Config.TblPrefix}turnyrai` turn2
+								INNER JOIN `{Config.TblPrefix}rungtynes` rung2 ON turn2.pavadinimas = rung2.fk_turnyras AND turn2.sezonas = rung2.fk_sezonas AND turn2.fk_salis = rung2.fk_salis
+								LEFT JOIN `{Config.TblPrefix}ivarciai` iv2 ON iv2.fk_seimininkai = rung2.fk_seimininkai AND iv2.fk_sveciai = rung2.fk_sveciai AND iv2.fk_data = rung2.faktine_data
+							WHERE
+								turn2.fk_salis = IFNULL(?salis, turn2.fk_salis)
+								AND rung2.faktine_data >= IFNULL(?nuo, rung2.faktine_data)
+								AND rung2.faktine_data <= IFNULL(?iki, rung2.faktine_data)
+							GROUP BY turn2.pavadinimas, turn2.sezonas, turn2.fk_salis
+						) AS bs2 ON bs2.pavadinimas = turn.pavadinimas AND bs2.sezonas = turn.sezonas AND bs2.fk_salis = turn.fk_salis
+				WHERE
+					turn.fk_salis = IFNULL(?salis, turn.fk_salis)
+					AND rung.faktine_data >= IFNULL(?nuo, rung.faktine_data)
+					AND rung.faktine_data <= IFNULL(?iki, rung.faktine_data)
+				GROUP BY
+					rung.faktine_data, rung.fk_seimininkai, rung.fk_sveciai
+				ORDER BY 
+					turn.pavadinimas, sal.pavadinimas, turn.sezonas ASC, rung.faktine_data DESC";
+
+			var queryBackup = 
+				$@"SELECT
+					rung.faktine_data,
+					rung.fk_seimininkai,
+					rung.fk_sveciai,
+					bs4.teisejas,
+					turn.pavadinimas,
+					turn.sezonas,
+					turn.fk_salis,
+					sal.pavadinimas AS salis,
+					IFNULL(COUNT(CASE WHEN iv.uz_kuria_komanda = 'seimininku' THEN 1 END), 0) AS ivarciai_seim,
+					IFNULL(COUNT(CASE WHEN iv.uz_kuria_komanda = 'sveciu' THEN 1 END), 0) AS ivarciai_svec,
+					IFNULL(bs2.ivarciu_suma, 0) ivarciu_suma,
+					bs3.rungtyniu_suma,
+					IFNULL(ivarciu_suma / bs3.rungtyniu_suma, 0) AS ivarciu_vidurkis
+				FROM
+					`{Config.TblPrefix}rungtynes` rung
+					INNER JOIN `{Config.TblPrefix}turnyrai` turn ON turn.pavadinimas = rung.fk_turnyras AND turn.sezonas = rung.fk_sezonas AND turn.fk_salis = rung.fk_salis
+					INNER JOIN `{Config.TblPrefix}salys` sal ON sal.id = turn.fk_salis
+					INNER JOIN (SELECT CONCAT(vardas, ' ', pavarde) AS teisejas, id FROM `{Config.TblPrefix}teisejai`) AS bs4 ON bs4.id = rung.fk_teisejas
+					LEFT JOIN `{Config.TblPrefix}ivarciai` iv ON iv.fk_seimininkai = rung.fk_seimininkai AND iv.fk_sveciai = rung.fk_sveciai AND iv.fk_data = rung.faktine_data
+					LEFT JOIN
+						(
+							SELECT
+								turn2.pavadinimas,
+								turn2.sezonas,
+								turn2.fk_salis,
+								IFNULL(COUNT(*), 0) AS ivarciu_suma
+							FROM 
+								`{Config.TblPrefix}turnyrai` turn2
+								INNER JOIN `{Config.TblPrefix}rungtynes` rung2 ON turn2.pavadinimas = rung2.fk_turnyras AND turn2.sezonas = rung2.fk_sezonas AND turn2.fk_salis = rung2.fk_salis
+								INNER JOIN `{Config.TblPrefix}ivarciai` iv2 ON iv2.fk_seimininkai = rung2.fk_seimininkai AND iv2.fk_sveciai = rung2.fk_sveciai AND iv2.fk_data = rung2.faktine_data
+							WHERE
+								turn2.fk_salis = IFNULL(?salis, turn2.fk_salis)
+								AND rung2.faktine_data >= IFNULL(?nuo, rung2.faktine_data)
+								AND rung2.faktine_data <= IFNULL(?iki, rung2.faktine_data)
+							GROUP BY turn2.pavadinimas, turn2.sezonas, turn2.fk_salis
+						) AS bs2 ON bs2.pavadinimas = turn.pavadinimas AND bs2.sezonas = turn.sezonas AND bs2.fk_salis = turn.fk_salis
+					LEFT JOIN
+						(
+							SELECT
+								turn3.pavadinimas,
+								turn3.sezonas,
+								turn3.fk_salis,
+								IFNULL(COUNT(*), 0) rungtyniu_suma
+							FROM 
+								`{Config.TblPrefix}turnyrai` turn3
+								INNER JOIN `{Config.TblPrefix}rungtynes` rung3 ON turn3.pavadinimas = rung3.fk_turnyras AND turn3.sezonas = rung3.fk_sezonas AND turn3.fk_salis = rung3.fk_salis
+							WHERE
+								turn3.fk_salis = IFNULL(?salis, turn3.fk_salis)
+								AND rung3.faktine_data >= IFNULL(?nuo, rung3.faktine_data)
+								AND rung3.faktine_data <= IFNULL(?iki, rung3.faktine_data)
+							GROUP BY turn3.pavadinimas, turn3.sezonas, turn3.fk_salis
+						) AS bs3 ON bs3.pavadinimas = turn.pavadinimas AND bs3.sezonas = turn.sezonas AND bs3.fk_salis = turn.fk_salis
+				WHERE
+					turn.fk_salis = IFNULL(?salis, turn.fk_salis)
+					AND rung.faktine_data >= IFNULL(?nuo, rung.faktine_data)
+					AND rung.faktine_data <= IFNULL(?iki, rung.faktine_data)
+				GROUP BY
+					rung.faktine_data, rung.fk_seimininkai, rung.fk_sveciai
+				ORDER BY 
+					turn.pavadinimas, sal.pavadinimas, turn.sezonas ASC";
