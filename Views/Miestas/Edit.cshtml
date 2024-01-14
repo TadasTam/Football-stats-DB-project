@@ -1,0 +1,126 @@
+﻿@model Org.Ktu.Isk.P175B602.Autonuoma.ViewModels.MiestasEditVM
+@{
+	ViewData["title"] = "Miesto redagavimas";
+}
+
+<div class="main-content-header container-fluid d-flex d-row justify-content-between align-items-center">
+	<span class="title">@ViewData["title"]</span>
+	<span class="actions">
+		<a href="@Url.Action("Index")" class="link-primary"><i class="fa-solid fa-angles-left"></i> Atgal į sarašą</a>
+	</span>
+</div>
+
+<div class="container-fluid d-flex justify-content-center">
+@using (Html.BeginForm())
+{
+	@Html.AntiForgeryToken()
+
+	@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+	@* add hidden form fields for non-visible properties, otherwise they will get lost in code that handles button presses *@
+	@Html.HiddenFor(m => m.Miestai.Id)
+
+	<fieldset class="border rounded shadow p-2">
+		<div class="form-group">
+			@Html.LabelFor(m => m.Miestai.FkSalis, new { @class = "control-label" })
+			@Html.DropDownListFor(m => m.Miestai.FkSalis, Model.Lists.Salys, "--------------", new { @class = "form-control" })
+			@Html.ValidationMessageFor(m => m.Miestai.FkSalis, "", new { @class = "text-danger" })
+		</div>
+
+		<div class="form-group">
+			@Html.LabelFor(m => m.Miestai.Pavadinimas, new { @class = "control-label" })
+			@Html.EditorFor(m => m.Miestai.Pavadinimas, new { htmlAttributes = new { @class = "form-control" } })
+			@Html.ValidationMessageFor(m => m.Miestai.Pavadinimas, "", new { @class = "text-danger" })
+		</div>
+
+		<div class="form-group">
+			<div class="col-md-offset-2 col-md-10">
+				<input type="submit" value="Išsaugoti" class="btn btn-success" />
+			</div>
+		</div>
+	</fieldset>
+
+	<fieldset class="border rounded shadow p-2">
+		<div class="container-fluid d-flex d-row justify-content-between align-items-center">
+			<span></span>
+			<legend style="width: unset; margin-bottom: 0px;">Stadionai</legend>
+			<button
+				name="add"
+				value="1"
+				formnovalidate @*ASP.NET Core magic attribute to prevent client side validation when submit button is clicked*@
+				formaction="@Url.Action()#listEnd"
+				class="btn btn-info"
+				style="white-space: nowrap;"
+			><i class="fa-solid fa-plus"></i> Pridėti</button>
+		</div>
+
+		<table class="table table-striped table-hover w-100">
+			<thead>
+				<tr>
+					<th>Pavadinimas</th>
+					<th>Talpa</th>
+					<th>Adresas</th>
+					<th>Metai</th>
+					<th>Renovuotas</th>
+					<th style="width: 1px;"></th>
+				</tr>
+			</thead>
+			<tbody>
+				@for( var i = 0; i < Model.Stadionai.Count; i++ ) {
+				<tr>
+					
+						@* add hidden form fields for non-visible properties, otherwise they will get lost in code that handles button presses *@
+						@Html.HiddenFor(m => m.Stadionai[i].InListId)
+
+					<td>
+						@Html.EditorFor(m => m.Stadionai[i].Pavadinimas, new { htmlAttributes = new { @class = "form-control" } })
+						@Html.ValidationMessageFor(m => m.Stadionai[i].Pavadinimas, "", new { @class = "text-danger" })
+					</td>
+					<td>
+						@Html.EditorFor(m => m.Stadionai[i].Talpa, new { htmlAttributes = new { @class = "form-control" } })
+						@Html.ValidationMessageFor(m => m.Stadionai[i].Talpa, "", new { @class = "text-danger" })
+					</td>
+					<td>
+						@Html.EditorFor(m => m.Stadionai[i].Adresas, new { htmlAttributes = new { @class = "form-control" } })
+						@Html.ValidationMessageFor(m => m.Stadionai[i].Adresas, "", new { @class = "text-danger" })
+					</td>
+					<td>
+						@Html.EditorFor(m => m.Stadionai[i].Metai, new { htmlAttributes = new { @class = "form-control" } })
+						@Html.ValidationMessageFor(m => m.Stadionai[i].Metai, "", new { @class = "text-danger" })
+					</td>
+					<td>
+						@Html.EditorFor(m => m.Stadionai[i].Renovuotas, new { htmlAttributes = new { @class = "form-control" } })
+						@Html.ValidationMessageFor(m => m.Stadionai[i].Renovuotas, "", new { @class = "text-danger" })
+					</td>
+					
+					<td>
+						<button
+							name="remove"
+							value="@Model.Stadionai[i].InListId"
+							formnovalidate @*ASP.NET Core magic attribute to prevent client side validation when submit button is clicked*@
+							formaction="@Url.Action()#listEnd"
+							class="btn btn-danger"
+							style="white-space: nowrap;"
+						><i class="fa-solid fa-trash"></i> Šalinti</button>
+					</td>
+				</tr>
+				}
+			</tbody>
+		</table>
+
+		@* this is used as a marker to automatically scroll down to the end of items list when returning from button presses *@
+		<span id="listEnd"></span>
+	</fieldset>
+
+	<div class="container-fluid d-flex d-row justify-content-end">
+		<button name="save" value="1" class="btn btn-success"><i class="fa-solid fa-floppy-disk"></i> Išsaugoti</button>
+	</div>
+}
+</div>
+
+<div class="main-content-footer container-fluid d-flex d-row justify-content-between align-items-center">
+	<span class="title"></span>
+	<span class="actions">
+		<a href="@Url.Action("Index")" class="link-primary"><i class="fa-solid fa-angles-left"></i> Atgal į sarašą</a>
+	</span>
+</div>

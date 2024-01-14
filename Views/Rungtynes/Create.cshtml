@@ -1,0 +1,209 @@
+﻿@model Org.Ktu.Isk.P175B602.Autonuoma.ViewModels.RungtynesEditVM
+@{
+	ViewData["title"] = "Rungtynių sukūrimas";
+}
+
+<div class="main-content-header container-fluid d-flex d-row justify-content-between align-items-center">
+	<span class="title">@ViewData["title"]</span>
+	<span class="actions">
+		<a href="@Url.Action("Index")" class="link-primary"><i class="fa-solid fa-angles-left"></i> Atgal į sarašą</a>
+	</span>
+</div>
+
+<div class="container-fluid d-flex justify-content-center">
+@using (Html.BeginForm())
+{
+	@Html.AntiForgeryToken()
+
+	@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+	
+
+
+	<fieldset class="border rounded shadow p-2">
+		<legend class="text-center">Rungtynes</legend>
+
+		<div class="form-group">
+			@Html.LabelFor(m => m.Rungtynes.FaktineData, new { @class = "control-label" })
+			@Html.TextBoxFor(m => m.Rungtynes.FaktineData, "{0:yyyy-MM-dd}", new { @class = "form-control date-picker"})
+			@Html.ValidationMessageFor(m => m.Rungtynes.FaktineData, "", new { @class = "text-danger" })
+		</div>
+
+		<div class="form-group">
+			@Html.LabelFor(m => m.Rungtynes.FkSeimininkas, new { @class = "control-label" })
+			@Html.DropDownListFor(m => m.Rungtynes.FkSeimininkas, Model.Lists.Komandos, "--------------", new { @class = "form-control" })
+			@Html.ValidationMessageFor(m => m.Rungtynes.FkSeimininkas, "", new { @class = "text-danger" })
+		</div>
+
+		<div class="form-group">
+			@Html.LabelFor(m => m.Rungtynes.FkSvecias, new { @class = "control-label" })
+			@Html.DropDownListFor(m => m.Rungtynes.FkSvecias, Model.Lists.Komandos, "--------------", new { @class = "form-control" })
+			@Html.ValidationMessageFor(m => m.Rungtynes.FkSvecias, "", new { @class = "text-danger" })
+		</div>
+
+		<div class="form-group">
+			@Html.LabelFor(m => m.Rungtynes.NumatytaData, new { @class = "control-label" })
+			@Html.TextBoxFor(m => m.Rungtynes.NumatytaData, "{0:yyyy-MM-dd}", new { @class = "form-control date-picker" })
+			@Html.ValidationMessageFor(m => m.Rungtynes.NumatytaData, "", new { @class = "text-danger" })
+		</div>
+
+		<div class="form-group">
+			@Html.LabelFor(m => m.Rungtynes.NumatytasLaikas, new { @class = "control-label" })
+			@Html.EditorFor(m => m.Rungtynes.NumatytasLaikas, new { htmlAttributes = new { @class = "form-control" } })
+			@Html.ValidationMessageFor(m => m.Rungtynes.NumatytasLaikas, "", new { @class = "text-danger" })
+		</div>
+
+		<div class="form-group">
+			@Html.LabelFor(m => m.Rungtynes.FaktinisLaikas, new { @class = "control-label" })
+			@Html.EditorFor(m => m.Rungtynes.FaktinisLaikas, new { htmlAttributes = new { @class = "form-control" } })
+			@Html.ValidationMessageFor(m => m.Rungtynes.FaktinisLaikas, "", new { @class = "text-danger" })
+		</div>
+
+		<div class="form-group">
+			@Html.LabelFor(m => m.Rungtynes.Ziurovai, new { @class = "control-label" })
+			@Html.EditorFor(m => m.Rungtynes.Ziurovai, new { htmlAttributes = new { @class = "form-control" } })
+			@Html.ValidationMessageFor(m => m.Rungtynes.Ziurovai, "", new { @class = "text-danger" })
+		</div>
+
+
+		<div class="form-group">
+			@Html.LabelFor(m => m.Rungtynes.Pratesimas, new { @class = "control-label" })
+			<div class="checkbox">
+				@Html.EditorFor(m => m.Rungtynes.Pratesimas)
+				@Html.ValidationMessageFor(m => m.Rungtynes.Pratesimas, "", new { @class = "text-danger" })
+			</div>
+		</div>
+
+		<div class="form-group">
+			@Html.LabelFor(m => m.Rungtynes.Baudiniai, new { @class = "control-label" })
+			<div class="checkbox">
+				@Html.EditorFor(m => m.Rungtynes.Baudiniai)
+				@Html.ValidationMessageFor(m => m.Rungtynes.Baudiniai, "", new { @class = "text-danger" })
+			</div>
+		</div>
+
+		<div class="form-group">
+			@Html.LabelFor(m => m.Rungtynes.Neutrali, new { @class = "control-label" })
+			<div class="checkbox">
+				@Html.EditorFor(m => m.Rungtynes.Neutrali)
+				@Html.ValidationMessageFor(m => m.Rungtynes.Neutrali, "", new { @class = "text-danger" })
+			</div>
+		</div>
+
+
+		<div class="form-group">
+			@Html.LabelFor(m => m.Rungtynes.FkStadionasIrMiestas, new { @class = "control-label" })
+			@Html.DropDownListFor(m => m.Rungtynes.FkStadionasIrMiestas, Model.Lists.Stadionai, "--------------", new { @class = "form-control" })
+			@Html.ValidationMessageFor(m => m.Rungtynes.FkStadionasIrMiestas, "", new { @class = "text-danger" })
+		</div>
+
+		<div class="form-group">
+			@Html.LabelFor(m => m.Rungtynes.FkTeisejas, new { @class = "control-label" })
+			@Html.DropDownListFor(m => m.Rungtynes.FkTeisejas, Model.Lists.Teisejai, "--------------", new { @class = "form-control" })
+			@Html.ValidationMessageFor(m => m.Rungtynes.FkTeisejas, "", new { @class = "text-danger" })
+		</div>
+
+		<div class="form-group">
+			@Html.LabelFor(m => m.Rungtynes.FkTurnyroInfo, new { @class = "control-label" })
+			@Html.DropDownListFor(m => m.Rungtynes.FkTurnyroInfo, Model.Lists.Turnyrai, "--------------", new { @class = "form-control" })
+			@Html.ValidationMessageFor(m => m.Rungtynes.FkTurnyroInfo, "", new { @class = "text-danger" })
+		</div>
+	</fieldset>
+	
+
+	<fieldset class="border rounded shadow p-2">
+		<div class="container-fluid d-flex d-row justify-content-between align-items-center">
+			<span></span>
+			<legend style="width: unset; margin-bottom: 0px;">Įvarčiai</legend>
+			<button
+				name="add"
+				value="1"
+				formnovalidate @*ASP.NET Core magic attribute to prevent client side validation when submit button is clicked*@
+				formaction="@Url.Action()#listEnd"
+				class="btn btn-info"
+				style="white-space: nowrap;"
+			><i class="fa-solid fa-plus"></i> Pridėti</button>
+		</div>
+
+		<table class="table table-striped table-hover w-100">
+			<thead>
+				<tr>
+					<th>Minutė</th>
+					<th>Į savus vartus</th>
+					<th>Baudinys</th>
+					<th>Už kurią komandą</th>
+					<th>Žaidėjas</th>
+					<th style="width: 1px;"></th>
+				</tr>
+			</thead>
+			<tbody>
+				@for( var i = 0; i < Model.Ivarciai.Count; i++ ) {
+				<tr>
+					
+						@* add hidden form fields for non-visible properties, otherwise they will get lost in code that handles button presses *@
+						@Html.HiddenFor(m => m.Ivarciai[i].InListId)
+
+					<td>
+						@Html.EditorFor(m => m.Ivarciai[i].Minute, new { htmlAttributes = new { @class = "form-control" } })
+						@Html.ValidationMessageFor(m => m.Ivarciai[i].Minute, "", new { @class = "text-danger" })
+					</td>
+					<td>
+						<div class="checkbox">
+						@Html.EditorFor(m => m.Ivarciai[i].Savus, new { htmlAttributes = new { @class = "form-control" } })
+						@Html.ValidationMessageFor(m => m.Ivarciai[i].Savus, "", new { @class = "text-danger" })
+						</div>
+					</td>
+					<td>
+						<div class="checkbox">
+						@Html.EditorFor(m => m.Ivarciai[i].Baudinys, new { htmlAttributes = new { @class = "form-control" } })
+						@Html.ValidationMessageFor(m => m.Ivarciai[i].Baudinys, "", new { @class = "text-danger" })
+						</div>
+					</td>
+					<td>
+						@Html.DropDownListFor(
+							m => m.Ivarciai[i].KuriKom, 
+							Model.Lists.UzKuria, 
+							"--------------", 
+							new { @class = "form-control" }
+						)
+						@Html.ValidationMessageFor(m => m.Ivarciai[i].KuriKom, "", new { @class = "text-danger" })
+					</td>
+					<td>
+						@Html.DropDownListFor(
+							m => m.Ivarciai[i].FkZaidejas, 
+							Model.Lists.Zaidejai, 
+							"--------------", 
+							new { @class = "form-control" }
+						)
+						@Html.ValidationMessageFor(m => m.Ivarciai[i].FkZaidejas, "", new { @class = "text-danger" })
+					</td>
+					<td>
+						<button
+							name="remove"
+							value="@Model.Ivarciai[i].InListId"
+							formnovalidate @*ASP.NET Core magic attribute to prevent client side validation when submit button is clicked*@
+							formaction="@Url.Action()#listEnd"
+							class="btn btn-danger"
+							style="white-space: nowrap;"
+						><i class="fa-solid fa-trash"></i> Šalinti</button>
+					</td>
+				</tr>
+				}
+			</tbody>
+		</table>
+
+		@* this is used as a marker to automatically scroll down to the end of items list when returning from button presses *@
+		<span id="listEnd"></span>
+	</fieldset>
+
+	<div class="container-fluid d-flex d-row justify-content-end">
+		<button name="save" value="1" class="btn btn-success"><i class="fa-solid fa-floppy-disk"></i> Išsaugoti</button>
+	</div>
+}
+</div>
+
+<div class="main-content-footer container-fluid d-flex d-row justify-content-between align-items-center">
+	<span class="title"></span>
+	<span class="actions">
+		<a href="@Url.Action("Index")" class="link-primary"><i class="fa-solid fa-angles-left"></i> Atgal į sarašą</a>
+	</span>
+</div>
